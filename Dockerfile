@@ -43,6 +43,7 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Switch to use a non-root user from here on
 #USER nobody
+USER root
 
 # Add application
 #COPY --chown=nobody src/ /var/www/html/
