@@ -38,12 +38,15 @@ COPY config/php.ini /etc/php81/conf.d/custom.ini
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+
+RUN useradd -ms /bin/bash john
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
-#RUN chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx
+RUN chown -R john.john /var/www/html /run /var/lib/nginx /var/log/nginx
 
 # Switch to use a non-root user from here on
 #USER nobody
-USER root
+
+USER john
 
 # Add application
 #COPY --chown=nobody src/ /var/www/html/
