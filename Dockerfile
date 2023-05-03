@@ -39,7 +39,7 @@ COPY config/php.ini /etc/php81/conf.d/custom.ini
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
-RUN useradd -ms /bin/bash john
+RUN adduser -ms /bin/sh john
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
 RUN chown -R john.john /var/www/html /run /var/lib/nginx /var/log/nginx
 
